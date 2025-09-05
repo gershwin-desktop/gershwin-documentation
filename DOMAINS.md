@@ -1,14 +1,12 @@
-# Gershwin GNUstep Domains: A Modern Take on NeXTSTEP's Elegant Architecture
+# Gershwin GNUstep Domains
 
-## Introduction: The Lost Art of System Organization
+## Introduction
 
-In the early days of NeXTSTEP and OpenSTEP, computer systems were organized around a brilliant concept called **domains**. This wasn't just about where files lived on disk—it was a comprehensive mental model for understanding how different parts of the system related to each other, who controlled what, and how users, administrators, and the system itself could coexist harmoniously.
+In NeXTSTEP and OpenSTEP, computer systems were organized around a concept called **domains**, a comprehensive mental model for understanding how different parts of the system relate to each other, who controls what, and how users, administrators, and the system itself could coexist.
 
-Apple's Rhapsody began to carry this torch forward, but Mac OS X ultimately abandoned much of this elegant organization in favor of a simpler (but less powerful) approach. The result? We lost one of computing's most thoughtful approaches to system architecture.
+This document explains the Gershwin take on this domain model.
 
-This document explains how Gershwin can bring back and enhance this domain model, creating a system that's both more organized and more powerful than what we see in modern operating systems.
-
-## The Domain Mental Model: Four Worlds, One System
+## The Domain Mental Model
 
 Think of your computer as having four distinct "worlds" or **domains**, each with its own purpose and authority:
 
@@ -36,7 +34,7 @@ Think of your computer as having four distinct "worlds" or **domains**, each wit
 - **When it changes:** Whenever you customize your personal environment
 - **Mental model:** "Your personal space that only you control"
 
-## Why This Matters: The Power of Clear Boundaries
+## Why This Matters: Clear Boundaries
 
 Modern systems often throw everything into a few giant directories (`/usr/bin`, `/Applications`, etc.) This creates confusion:
 - Where should I install this application?
@@ -50,14 +48,13 @@ The domain model answers these questions before you even ask them. Each domain h
 
 Here's how the four domains organize themselves:
 
-### System Domain: The Untouchable Foundation
+### System Domain: The Operating System
 ```
 /System/
-├── Applications/           # Core system applications
-│   └── Admin/             # System administration tools
+├── Applications/          # Core system applications
+│   └── Utilities/        # System administration utilities
 └── Library/               # Everything else the system needs
     ├── Tools/             # Command-line utilities
-    │   └── Admin/         # System admin command-line tools
     ├── Libraries/         # System frameworks and libraries
     ├── Headers/           # Development headers
     ├── Documentation/     # System documentation
@@ -70,13 +67,12 @@ Here's how the four domains organize themselves:
 ### Network Domain: Shared Across the Organization
 ```
 /Network/
-├── Applications/          # Apps available to all network users
-│   └── Admin/            # Network administration applications
+├── Applications/         # Apps available to all network users
+│   └── Utilities/       # Network provided applications
 └── Library/              # Shared network resources
     ├── Tools/            # Shared command-line tools
-    │   └── Admin/        # Network admin tools
     ├── Libraries/        # Shared frameworks
-    ├── Headers/          # Shared development resources
+    ├── Headers/          # Shared header files for development
     ├── Documentation/    # Shared documentation
     │   ├── man/
     │   └── info/
@@ -86,13 +82,12 @@ Here's how the four domains organize themselves:
 ### Local Domain: This Computer's Resources
 ```
 /Local/
-├── Applications/          # Apps for all users of this machine
-│   └── Admin/            # Local administration applications
+├── Applications/         # Apps for all users of this machine
+│   └── Utilities/       # Local utilities
 └── Library/              # Local machine resources
     ├── Tools/            # Local command-line tools
-    │   └── Admin/        # Local admin tools
     ├── Libraries/        # Local frameworks
-    ├── Headers/          # Local development resources
+    ├── Headers/          # Local header files for development
     ├── Documentation/    # Local documentation
     │   ├── man/
     │   └── info/
@@ -101,14 +96,13 @@ Here's how the four domains organize themselves:
 
 ### User Domain: Your Personal Space
 ```
-/Users/jmaloney/          # (or wherever users live)
-├── Applications/         # Your personal applications
-│   └── Admin/           # Your personal admin tools
+/Users/jmaloney/           # (or wherever users live)
+├── Applications/        # Your personal applications
+│   └── Utilities/      # Your personal utilities
 └── Library/             # Your personal resources
     ├── Tools/           # Your personal command-line tools
-    │   └── Admin/       # Your personal admin tools
     ├── Libraries/       # Your personal frameworks
-    ├── Headers/         # Your personal development resources
+    ├── Headers/         # Your personal header files for development
     ├── Documentation/   # Your personal documentation
     │   ├── man/
     │   └── info/
@@ -118,7 +112,7 @@ Here's how the four domains organize themselves:
         └── (other preference files)
 ```
 
-## The "Library" Philosophy: Why Not Everything Goes in Applications
+## Library
 
 You'll notice that only actual applications go in the `Applications` directories. Everything else—tools, libraries, documentation, frameworks—lives under `Library`. This serves several important purposes:
 
@@ -198,7 +192,7 @@ This means you can always override organization settings with personal preferenc
 
 Applications see all fonts, but personal fonts can override corporate ones if they have the same name.
 
-## The Psychological Benefits
+## Benefits
 
 This organization provides several psychological advantages:
 
@@ -257,12 +251,7 @@ GNUSTEP_USER_DIR_LIBRARY=Library
 # ... (all User variables are relative to user home)
 ```
 
-This configuration restores the NeXTSTEP mental model while adapting it for modern needs.
+## Naming
 
-## Conclusion: Bringing Back Elegance
-
-The domain model isn't just about file organization—it's about creating a system that makes sense to humans. When every file has a clear purpose and owner, when the hierarchy reflects actual relationships and responsibilities, when users can confidently make changes without fear of breaking things, the computer becomes a tool that amplifies human intelligence rather than fighting it.
-
-By implementing this enhanced domain structure in GNUstep, we're not just organizing files—we're restoring one of computer science's most elegant solutions to the problem of system organization. It's a return to the days when operating systems were designed around clear mental models rather than historical accident and accumulated cruft.
-
-This is what Rhapsody promised. This is what Mac OS X abandoned. This is what Gershwin based on GNUstep can deliver.
+* Graphical applications have upper case names, e.g., `MyApp.app`
+* Command line tools have lower case names, e.g., `myutil`
