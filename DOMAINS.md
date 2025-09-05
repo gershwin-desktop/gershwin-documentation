@@ -231,7 +231,7 @@ You can try new software in your User domain without affecting anyone else.
 - **Problems:** Architecture-based rather than ownership-based organization
 - **Lost benefit:** The concept of domains entirely
 
-## Implementation Notes for Your Configuration
+## Implementation Notes for Gershwin
 
 The proposed Gershwin configuration elegantly maps these concepts:
 
