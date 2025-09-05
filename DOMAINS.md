@@ -48,7 +48,7 @@ The domain model answers these questions before you even ask them. Each domain h
 
 ## The Directory Structure: Where Everything Lives
 
-Based on your proposed layout, here's how the four domains organize themselves:
+Here's how the four domains organize themselves:
 
 ### System Domain: The Untouchable Foundation
 ```
