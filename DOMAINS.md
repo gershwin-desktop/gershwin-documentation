@@ -52,14 +52,13 @@ Here's how the four domains organize themselves:
 ```
 /System/
 ├── Applications/          # Core system applications
-│   └── Utilities/        # System administration utilities
 └── Library/               # Everything else the system needs
     ├── Tools/             # Command-line utilities
     ├── Libraries/         # System frameworks and libraries
     ├── Headers/           # Development headers
     ├── Documentation/     # System documentation
-    │   ├── man/          # Manual pages
-    │   └── info/         # Info documents
+    │   ├── man/           # Manual pages
+    │   └── info/          # Info documents
     ├── WebApplications/   # System web services
     └── Makefiles/         # Build system configuration
 ```
@@ -68,7 +67,6 @@ Here's how the four domains organize themselves:
 ```
 /Network/
 ├── Applications/         # Apps available to all network users
-│   └── Utilities/       # Network provided applications
 └── Library/              # Shared network resources
     ├── Tools/            # Shared command-line tools
     ├── Libraries/        # Shared frameworks
@@ -83,7 +81,6 @@ Here's how the four domains organize themselves:
 ```
 /Local/
 ├── Applications/         # Apps for all users of this machine
-│   └── Utilities/       # Local utilities
 └── Library/              # Local machine resources
     ├── Tools/            # Local command-line tools
     ├── Libraries/        # Local frameworks
@@ -97,18 +94,17 @@ Here's how the four domains organize themselves:
 ### User Domain: Your Personal Space
 ```
 /Users/jmaloney/           # (or wherever users live)
-├── Applications/        # Your personal applications
-│   └── Utilities/      # Your personal utilities
-└── Library/             # Your personal resources
-    ├── Tools/           # Your personal command-line tools
-    ├── Libraries/       # Your personal frameworks
-    ├── Headers/         # Your personal header files for development
-    ├── Documentation/   # Your personal documentation
+├── Applications/          # Your personal applications
+└── Library/               # Your personal resources
+    ├── Tools/             # Your personal command-line tools
+    ├── Libraries/         # Your personal frameworks
+    ├── Headers/           # Your personal header files for development
+    ├── Documentation/     # Your personal documentation
     │   ├── man/
     │   └── info/
-    ├── WebApplications/ # Your personal web services
-    └── Preferences/     # Your settings and preferences
-        ├── GNUstep.conf # GNUstep configuration
+    ├── WebApplications/   # Your personal web services
+    └── Preferences/       # Your settings and preferences
+        ├── GNUstep.conf   # GNUstep configuration
         └── (other preference files)
 ```
 
