@@ -15,6 +15,7 @@ GNUSTEP_MAKEFILES=/System/Library/Makefiles
 
 GNUSTEP_SYSTEM_APPS=/System/Applications
 GNUSTEP_SYSTEM_ADMIN_APPS=/System/Applications/Admin
+GNUSTEP_SYSTEM_UTILS_APPS=/System/Applications/Utilities
 GNUSTEP_SYSTEM_WEB_APPS=/System/Library/WebApplications
 GNUSTEP_SYSTEM_TOOLS=/System/Library/Tools
 GNUSTEP_SYSTEM_ADMIN_TOOLS=/System/Library/Tools/Admin
@@ -27,6 +28,7 @@ GNUSTEP_SYSTEM_DOC_INFO=/System/Library/Documentation/info
 
 GNUSTEP_NETWORK_APPS=/Network/Applications
 GNUSTEP_NETWORK_ADMIN_APPS=/Network/Applications/Admin
+GNUSTEP_NETWORK_UTILS_APPS=/Network/Applications/Utilities
 GNUSTEP_NETWORK_WEB_APPS=/Network/Library/WebApplications
 GNUSTEP_NETWORK_TOOLS=/Network/Library/Tools
 GNUSTEP_NETWORK_ADMIN_TOOLS=/Network/Library/Tools/Admin
@@ -39,6 +41,7 @@ GNUSTEP_NETWORK_DOC_INFO=/Network/Library/Documentation/info
 
 GNUSTEP_LOCAL_APPS=/Local/Applications
 GNUSTEP_LOCAL_ADMIN_APPS=/Local/Applications/Admin
+GNUSTEP_LOCAL_UTILS_APPS=/Local/Applications/Utilities
 GNUSTEP_LOCAL_WEB_APPS=/Local/Library/WebApplications
 GNUSTEP_LOCAL_TOOLS=/Local/Library/Tools
 GNUSTEP_LOCAL_ADMIN_TOOLS=/Local/Library/Tools/Admin
@@ -51,6 +54,7 @@ GNUSTEP_LOCAL_DOC_INFO=/Local/Library/Documentation/info
 
 GNUSTEP_USER_DIR_APPS=Applications
 GNUSTEP_USER_DIR_ADMIN_APPS=Applications/Admin
+GNUSTEP_USER_DIR_UTILS_APPS=Applications/Utilities
 GNUSTEP_USER_DIR_WEB_APPS=Library/WebApplications
 GNUSTEP_USER_DIR_TOOLS=Library/Tools
 GNUSTEP_USER_DIR_ADMIN_TOOLS=Library/Tools/Admin
