@@ -6,7 +6,7 @@ In this scenereo Software.app can support installing to a network domain with th
 
 * /Local/Volumes would be used for Removable Media
 * /Network/Computers would be used to browse hosts on network.
-
+* /Network/Applications, /Network/Library, and /Network/Users would be appear when a client has joined a domain.
 
 ```
 #
