@@ -12,6 +12,7 @@ GNUSTEP_NETWORK_USERS_DIR=/Network/Users
 GNUSTEP_LOCAL_USERS_DIR=/Local/Users
 
 GNUSTEP_MAKEFILES=/System/Library/Makefiles
+GNUSTEP_CORESERVICES=/System/Library/CoreServices
 
 GNUSTEP_SYSTEM_APPS=/System/Applications
 GNUSTEP_SYSTEM_ADMIN_APPS=/System/Applications/Admin
