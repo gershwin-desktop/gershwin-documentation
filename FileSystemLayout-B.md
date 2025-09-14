@@ -1,6 +1,6 @@
 ## Gerswhin File System Layout option B
 
-This is the layout GhostBSD uses with things like Utilities and CoreServices added.  We drop the idea of Software.app installing to a Network domain.  These changes would be the least disurptive to GhostBSD users, packaging efforts, would allow quicker rollout of Software.App, and finishing Window Manager.
+This is the layout GhostBSD uses with things like Utilities and CoreServices added.  We drop the idea of Software.app installing to a Network domain.  These changes would be the least disurptive would require no major repackaging efforts, would allow quicker rollout of Software.App, and finishing Window Manager.
 
 * /Network becomes discoverable hosts on Network
 * /Volumes is used for removable media
