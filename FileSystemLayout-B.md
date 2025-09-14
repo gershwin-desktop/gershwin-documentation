@@ -5,6 +5,8 @@ This is the layout GhostBSD uses with things like Utilities and CoreServices add
 * /Network becomes discoverable hosts on Network
 * /Volumes is used for removable media
 
+Technically /Network could be used the way it is in Option A here without any impact.
+
 ```
 #
 # Gershwin filesystem layout
