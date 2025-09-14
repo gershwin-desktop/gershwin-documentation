@@ -1,4 +1,4 @@
-# This is a draft of the FileSystemLayout that will be proposed for packaging
+## This is a draft of the FileSystemLayout that will be proposed for packaging
 
 ```
 #
