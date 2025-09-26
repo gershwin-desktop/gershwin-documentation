@@ -2,7 +2,7 @@
 
 ## Overview
 
- ZFS datasets for Local and Network must be created in advance for this to work properly as described in ZFS.md.  NIS/NFS must be setup in advance as documented in NETWORK.md for Network user accounts.  Eventually this will be automated with StepInfo siutil or something similar.
+ZFS datasets for Local and Network must be created in advance for this to work properly as described in ZFS.md.  NIS/NFS must be setup in advance as documented in NETWORK.md for Network user accounts.  Eventually this will be automated with StepInfo siutil or something similar.
 
 The following is an example of what a properly configured `/etc/adduser.conf` might look like that reflects the Gershwin GNUstep layout.
 
