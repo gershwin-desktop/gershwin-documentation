@@ -1,6 +1,10 @@
 # Gershwin GNUstep Network Domain
 
-The Gershwin GNUstep Network Domain provides a mechanism for sharing applications, libraries, and users.  This feature is currently designed around FreeBSD, NIS, NFS, ZFS, and adduser facilties with custom configurations. 
+The Gershwin GNUstep Network Domain documentation provides a mechanism for sharing applications, libraries, and users over a local area network.  
+
+This initial implementation for documentation purposes is currently designed around FreeBSD, and NIS, NFS which are included in it's base system.  It should work in GhostBSD with additional firewall rules, or firewall_enable="NO" set in rc.conf.  The technology used is subject to change in the future.
+
+## Configure the Server for Authentication
 
 If your network has an existing bonjour `dns-sd` capable broadcast domain use it for domain name.  This can typically be found in `/etc/resolv.conf`.  
 
@@ -10,9 +14,138 @@ jmaloney@darwinator ~ % cat /etc/resolv.conf
 search home.local
 ```
 
-Otherwise pick a any name.
+Otherwise pick a any name and configure it in rc.conf and adjust home.local in all commmands to the preferred choice:
 
 ```
-sysrc nisdomainname="home.local"
+# sysrc nisdomainname="home.local"
 ```
+
+Then configure services to start at boot:
+
+```
+# sysrc nis_server_enable="YES"
+# sysrc nis_yppasswdd_enable="YES"
+```
+
+Run the following to apply values:
+```
+# /etc/netstart
+# service ypserv start
+```
+
+The first time ypserv will show an error this is fine.
+
+Run the following to build initial NIS maps:
+
+```
+# cp /etc/master.passwd /var/yp/master.passwd
+# cd /var/yp
+```
+
+Remove all users from /var/yp/master.passwd except for the users you want to import:
+```
+# vi master.passwd
+```
+
+Now run we will generate the maps from master.passwd:
+```
+# ypinit -m home.local
+```
+
+Restart one more time to apply values:
+```
+# /etc/netstart
+# service ypserv restart
+```
+
+After adding new users in the future:
+```
+cd /var/yp
+make home.local
+```
+
+## Configure the Server for Sharing
+
+Now configure the NFS server by editing /etc/exports and add this line:
+```
+/Network -maproot=root -alldirs
+```
+
+Now configure the following services to start at boot:
+```
+# sysrc rpcbind_enable="YES"
+# sysrc nfs_server_enable="YES"
+# sysrc mountd_enable="YES"
+# sysrc rpc_lockd_enable="YES"
+```
+
+Start the services:
+```
+# service nfsd start
+# service lockd start
+```
+
+## Configure the client for authentication
+
+First configure /etc/nsswitch to use NIS and files on passwd and group lines:
+
+```
+jmaloney@darwinator ~ % cat /etc/nsswitch.conf
+#
+# nsswitch.conf(5) - name service switch configuration file
+#
+group: nis files
+group_compat: nis
+hosts: files dns
+netgroup: compat
+networks: files
+passwd: nis files
+passwd_compat: nis
+shells: files
+services: compat
+services_compat: nis
+protocols: files
+rpc: files
+```
+
+The configure services to start at boot:
+```
+# sysrc nisdomainname="home.local"
+# sysrc nis_client_enable="YES"
+# sysrc rpc_lockd_enable="YES"
+```
+
+Now start the services
+```
+# /etc/netstart
+# service ypserv start
+```
+
+## Configure the client for accessing shares
+
+Populate /etc/fstab with the mount point of the server and mount point on the local system.  This is an example where the name of the server is minime and the share is /Network we exported earlier on the server.
+
+```
+jmaloney@darwinator ~ % cat /etc/fstab
+# Device                Mountpoint      FStype  Options         Dump    Pass#
+/dev/ada0p2             none            swap    sw              0       0
+minime:/Network         /Network        nfs     rw              0       0
+jmaloney@darwinator ~ %
+```
+
+Start the services:
+```
+# service nfsd start
+# service lockd start
+```
+
+Now confirm the following show expected users:
+
+```
+ypcat passwd
+getent passwd
+```
+
+If both of these show what is expected you are ready to login with network users.
+
 
