@@ -6,7 +6,7 @@ This initial implementation for documentation purposes is currently designed aro
 
 ## Configure the Server for Authentication
 
-If your network has an existing bonjour `dns-sd` capable broadcast domain use it for domain name.  This can typically be found in `/etc/resolv.conf`.  
+If your network has an existing domain that allows resolution use it for domain name.  This can typically be found in `/etc/resolv.conf`.  
 
 ```
 jmaloney@darwinator ~ % cat /etc/resolv.conf
@@ -123,7 +123,7 @@ Now start the services
 
 ## Configure the client for accessing shares
 
-Populate /etc/fstab with the mount point of the server and mount point on the local system.  This is an example where the name of the server is minime and the share is /Network we exported earlier on the server.
+Populate /etc/fstab with the mount point of the server and mount point on the local system.  This is an example where the name of the server is minime and the share is /Network we exported earlier on the server.  Use an IP address here instead of hostname if your network does not have DNS resolution for hostnames.
 
 ```
 jmaloney@darwinator ~ % cat /etc/fstab
