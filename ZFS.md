@@ -1,10 +1,12 @@
 # Gershwin ZFS Dataset Configuration
 
-This guide explains how to configure ZFS datasets for Gershwin during manual installations, including `/System`, `/Local`, and user home datasets under `/Local/Users`.
+This guide explains how to configure ZFS datasets for Gershwin during manual installations, including `/System`, `/Local`, and `/Network`.  
+
+It is important to configure datasets on ZFS on root installations.  Otherwise data in /Local and /Network as folders would get lost between boot environments.  For this reason we only create `/System` in the default boot environment to be cloned to other boot environments.  The `/Local` and `/Network` datasets are then shared between boot environments.
 
 ---
 
-## `/System` Dataset (Per Boot Environment)
+## `/System` Dataset
 
 `/System` should live **inside the active boot environment dataset** so changes can be rolled back when switching boot environments.
 
@@ -32,7 +34,7 @@ This will inherit all ZFS properties from the boot environment dataset and be in
 
 ---
 
-## `/Local` Dataset (Shared Across Boot Environments)
+## `/Local` Dataset
 
 `/Local` should be **shared across all boot environments** so locally installed software is persistent across rollbacks.
 
@@ -44,45 +46,10 @@ sudo zfs create -o mountpoint=/Local zroot/Local
 zfs list | grep '/Local'
 ```
 
----
+## `/Network` Dataset
 
-## Migrating `/home` to `/Local/Users`
-
-To match the Gershwin domain model, move all user datasets from `/home` to `/Local/Users`.  All users must be logged out and this must be done by logging in directly as root user to work.
-
-### 1. Rename `/home` Dataset Recursively
-
-This moves `/home` and its children into `/Local/Users` without copying data:
+`/Network` should also be **shared across all boot environments** so installed software is persistent across rollbacks.
 
 ```sh
-zfs rename -u zroot/home zroot/Local/Users
+sudo zfs create -o mountpoint=/Network zroot/Network
 ```
-
-### 3. Adjust Mountpoints
-
-Update mountpoints so users live directly under `/Local/Users`:
-
-```sh
-zfs set mountpoint=/Local/Users zroot/Local/Users/home
-zfs set mountpoint=/Local/Users/jmaloney zroot/Local/Users/jmaloney
-```
-
-### 4. Update User Accounts
-
-Point users to the new home directory path:
-
-```sh
-pw usermod jmaloney -d /Local/Users/jmaloney
-```
-
-### 5. Verify Migration
-
-```sh
-zfs list | grep Users
-getent passwd jmaloney
-```
-
-Confirm that:
-- Datasets are mounted under `/Local/Users`
-- `getent passwd` shows `/Local/Users/jmaloney`
-- You can log in and access your files
