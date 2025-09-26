@@ -1,6 +1,6 @@
 ## Gerswhin File System Layout
 
-This is a proposal for layout that better aligns with the original concept of domains.  
+This is the layout Gershwin is moving to that better aligns with the original concept of domains.  It will be proposed to the GNUstep project for integration so packagers can make use of it.
 
 ```
 #
