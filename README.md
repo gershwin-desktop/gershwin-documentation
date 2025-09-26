@@ -1,7 +1,7 @@
 # gershwin-documentation
 Gershwin is a desktop environment based on GNUstep.  It is designed to provide an early Mac OS X-like user experience with an aim to also innovate.  The domains documentation in this repo is a good first example of this.
 
-Gershwin aims to be different from your typical desktop environment.  Here are some examples of technology differences that Gershwin will use versus the typical freedesktop based solutions:
+Gershwin aims to be different from your typical desktop environment project.  Here are some key examples of technology differences that Gershwin will use versus typical free and open source desktop environments:
 
 * GCC -> CLANG
 * GTK -> GNUstep/Swift
