@@ -1,12 +1,6 @@
-## Gerswhin File System Layout option A
+## Gerswhin File System Layout
 
 This is a proposal for layout that better aligns with the original concept of domains.  
-
-In this scenereo Software.app can support installing to a network domain with the requirement being that computers would need to be joined to a domain first.  This option will require a lot more work to packaging, will delay Software.app, and Window Manager.
-
-* /Local/Volumes would be used for Removable Media
-* /Network/Computers would be used to browse hosts on network.
-* /Network/Applications, /Network/Library, and /Network/Users would be appear when a client has joined a domain.
 
 ```
 #
