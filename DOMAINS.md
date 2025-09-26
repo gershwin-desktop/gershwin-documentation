@@ -32,7 +32,7 @@ Think of your computer as having four distinct "worlds" or **domains**, each wit
 - **Who controls it:** Individual users
 - **What it contains:** Personal applications, preferences, and data
 - **When it changes:** Whenever you customize your personal environment
-- **Mental model:** "Your personal space that only you control"
+- **Mental model:** "Your personal space that only you control on your machine or a network server"
 
 ## Why This Matters: Clear Boundaries
 
@@ -91,9 +91,26 @@ Here's how the four domains organize themselves:
     └── WebApplications/  # Local web services
 ```
 
-### User Domain: Your Personal Space
+### Local User Domain: Your Personal Space on your machine
 ```
-/Users/jmaloney/           # (or wherever users live)
+/Local/Users/jmaloney/     # (or wherever users live)
+├── Applications/          # Your personal applications
+└── Library/               # Your personal resources
+    ├── Tools/             # Your personal command-line tools
+    ├── Libraries/         # Your personal frameworks
+    ├── Headers/           # Your personal header files for development
+    ├── Documentation/     # Your personal documentation
+    │   ├── man/
+    │   └── info/
+    ├── WebApplications/   # Your personal web services
+    └── Preferences/       # Your settings and preferences
+        ├── GNUstep.conf   # GNUstep configuration
+        └── (other preference files)
+```
+
+### Network User Domain: Your Personal Space on a Network Server
+```
+/Network/Users/jmaloney/   # (or wherever users live)
 ├── Applications/          # Your personal applications
 └── Library/               # Your personal resources
     ├── Tools/             # Your personal command-line tools
@@ -132,11 +149,21 @@ Different types of resources often need different access controls and update pol
 **User installs a personal application:**
 ```bash
 # Application goes to personal Applications
-/Users/jmaloney/Applications/MyPersonalApp.app
+/Local/Users/jmaloney/Applications/MyPersonalApp.app
 
 # Supporting files go to personal Library
-/Users/jmaloney/Library/Tools/myapp-cli
-/Users/jmaloney/Library/Libraries/libmyapp.so
+/Local/Users/jmaloney/Library/Tools/myapp-cli
+/Local/Users/jmaloney/Library/Libraries/libmyapp.so
+```
+
+**User installs a personal application using an account hosted on the network server:**
+```bash
+# Application goes to personal Applications
+/Network/Users/jmaloney/Applications/MyPersonalApp.app
+
+# Supporting files go to personal Library
+/Network/Users/jmaloney/Library/Tools/myapp-cli
+/Network/Users/jmaloney/Library/Libraries/libmyapp.so
 ```
 
 **Administrator installs software for all local users:**
