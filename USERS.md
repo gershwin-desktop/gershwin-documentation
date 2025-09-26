@@ -25,12 +25,12 @@ Note if `/etc/adduser.conf` exists and you do not want to modify `adduser -N` ma
 
 Create a Local User (Applies to Local Machine Only)
 ```
-adduser
+# adduser
 ```
 
 Create a Network User (Must be done from Server)
 ```
-adduser
+# adduser
 ```
 Using jmaloney for example when promoted for `Home directory [/Local/Users/jmaloney]:` Change `/Local/` to `/Network/` instead:
 ```
