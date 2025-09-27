@@ -4,8 +4,31 @@ This is the layout Gershwin is moving to that better aligns with the original co
 
 ```
 #
-# Gershwin filesystem layout
+# Gershwin Filesystem Layout
 #
+# This is the layout for the Gershwin Desktop Environment. It has
+# been created to make things easier for packagers. It is very
+# similar to the GNUstep layout, but there are some key differences.
+# 
+# First, the prefix is designed to be the root of the filesystem.
+# It is set this way while being entirely self-contained. 
+#
+# Second, each domain has users to distinguish between Local, 
+# Network, and System users, which may be used for service accounts. 
+#
+# Third, more things are tucked under Library so each domain has 
+# Applications and Library for consistency. This is done for several 
+# reasons. 
+#
+# The first is that Gershwin supports a client-and-server computing model. 
+# The second is that Gershwin provides the ability to install GNUstep
+# Applications outside of the operating system’s packaging facilities.
+# These applications can be installed by a user without any elevated
+# credentials or by an administrator in the local system or network domain.
+#
+# To support these mechanisms and convince distributions to accept
+# root-prefix-driven installations, a new layout was needed. The layout is
+# essential to providing the feature sets described above.
 
 GNUSTEP_DEFAULT_PREFIX=/
 
