@@ -2,7 +2,7 @@
 
 This guide explains how to configure ZFS datasets for Gershwin during manual installations, including `/System`, `/Local`, and `/Network`.  
 
-It is important to configure datasets on ZFS on root installations.  Otherwise data in /Local and /Network as folders would get lost between boot environments.  For this reason we only create `/System` in the default boot environment to be cloned to other boot environments.  The `/Local` and `/Network` datasets are then shared between boot environments.
+It is important to configure datasets on ZFS on root installations used by GhostBSD, or FreeBSD.  Otherwise data in /Local and /Network as folders would get lost between boot environments.  For this reason we only create `/System` in the default boot environment to be cloned to other boot environments.  The `/Local` and `/Network` datasets are then shared between boot environments.  This allows easy rollback if something goes wrong with System related components without affecting user data.
 
 ---
 
