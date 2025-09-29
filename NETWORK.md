@@ -108,11 +108,10 @@ protocols: files
 rpc: files
 ```
 
-The configure services to start at boot:
+To configure services to start at boot for authentication:
 ```
 # sysrc nisdomainname="home.local"
 # sysrc nis_client_enable="YES"
-# sysrc rpc_lockd_enable="YES"
 ```
 
 Now start the services
@@ -131,6 +130,11 @@ jmaloney@darwinator ~ % cat /etc/fstab
 /dev/ada0p2             none            swap    sw              0       0
 minime:/Network         /Network        nfs     rw              0       0
 jmaloney@darwinator ~ %
+```
+To configure the services to start at boot for connecting shares:
+```
+# sysrc nfs_client_enable="YES"
+# sysrc rpc_lockd_enable="YES"
 ```
 
 Start the services:
