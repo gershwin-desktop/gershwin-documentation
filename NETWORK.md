@@ -139,7 +139,7 @@ To configure the services to start at boot for connecting shares:
 
 Start the services:
 ```
-# service nfsd start
+# service nfsclient start
 # service lockd start
 ```
 
