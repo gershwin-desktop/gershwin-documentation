@@ -117,7 +117,7 @@ To configure services to start at boot for authentication:
 Now start the services
 ```
 # /etc/netstart
-# service ypserv start
+# service ypbind start
 ```
 
 ## Configure the client for accessing shares
