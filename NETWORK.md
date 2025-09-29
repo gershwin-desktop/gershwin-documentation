@@ -143,6 +143,11 @@ Start the services:
 # service lockd start
 ```
 
+Mount network on the client
+```
+# mount /Network
+```
+
 Now confirm the following show expected users:
 
 ```
