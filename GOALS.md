@@ -8,7 +8,6 @@ Some examples of how Gershwin uses /System and how we want to use going forward:
 
 * Fonts that Gershwin will use will be installed in /System/Library/Fonts
     * Gershwin will not use Fonts from /usr/share/fonts
-    * We do not show ugly fonts that the distribution may have chosen to install
     * We provide a consistent experience no matter which underlying OS is used
     * In /System/Library/Scripts/Gershwin.sh we override fontconfig variables as the mechanism to do this without touching the operating systems configuration files for external tools
 * Tools will be developed for things like managing users
