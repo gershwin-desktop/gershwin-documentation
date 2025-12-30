@@ -61,11 +61,9 @@ We want to be able to provide multiple release versions of libs-base, libs-gui a
 
 The goal here is to make keep gershwin-build simple, and also keep it simple for packagers to package our repos.  We want as many users using Gershwin as possible, and do not want to increase the level of effort for packagers to study gershwin-build to determine how to individually package each repo as needed.
 
-### Cloud & AI free
+### Cloud free
 
 It should go without saying that we  do not want any technology that would require user sign in, or anything that would violate a users privacy, reveal location, take automated screenshot of activities, provide automated reports of how long a user performs tasks on their devices.
 
 * We do not want to ship a software store that would require sign in or the user to identify whom they are
 * We do not want a Weather app that or installer that automatically determines a users location without the user requesting to do so
-* We do not want AI baked into any software Gershwin software
-    * It is of course okay to use copilot or other tools to review contributions, fix software we just don't want Gershwin software itself include AI features
