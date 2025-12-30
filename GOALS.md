@@ -4,6 +4,8 @@ This document is outline design decisions and requirements for contributing to h
 
 ### Self contained in /System
 
+With "self contained" we mean that just adding /System to a running system should give you the Gershwin Desktop Experience. No installation of Gershwin components or configuration outside of /System should be necessary.
+
 Some examples of how Gershwin uses /System and how we want to use going forward:
 
 * Fonts that Gershwin will use will be installed in /System/Library/Fonts
