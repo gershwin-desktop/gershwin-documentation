@@ -40,12 +40,13 @@ Why do we do this?  The eventual goal is so that Gershwin requires more or less 
 What does this mean to the user experience?  We can build the entire system in less than a few minutes on the lowest spec hardware, and it will consume less than 50MB of storage.  This makes Gershwin ideal for it’s goal to run any hardware device using nearly any OS.  
 
 
-### No patching GNUstep core libs in Gershwin
+### Long term stable ABI
 
-* We have tickets open to address where we have made small modifications that will be ported back to GNUstep
-    * Such as examples include being able to restore applications by clicking a GNUstep app from the dock
-        * This was an example of a quick modification that was made to provide a proof of concept of Gershwin for technology previews
-        * Moving forward we will see whether it is feasible to move this functionality in Workspace instead or, make PR to put the behavior behind an option which is the standard way.
+* We do not want to fork or modify GNUstep core libs
+    * We have tickets open to address where we have made small modifications to core libs that will be ported back to GNUstep
+        * Such as examples include being able to restore applications by clicking a GNUstep app from the dock
+            * This was an example of a quick modification that was made to provide a proof of concept of Gershwin for technology previews
+            * Moving forward we will see whether it is feasible to move this functionality in Workspace instead or, make PR to put the behavior behind an option which is the standard way.
 
 We want to be able to provide multiple release versions of libs-base, libs-gui and so on in the future to ensure long term compatibility for applications built as GNUstep releases new versions.  Forking the core libs hinders our ability to do this properly as a project.
 
