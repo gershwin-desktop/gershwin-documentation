@@ -4,6 +4,8 @@ This document is outline design decisions and requirements for contributing to h
 
 ### Self contained in /System
 
+Some examples of how Gershwin uses /System and how we want to use going forward:
+
 * Fonts that Gershwin will use will be installed in /System/Library/Fonts
     * Gershwin will not use Fonts from /usr/share/fonts
     * We do not show ugly fonts that the distribution may have chosen to install
