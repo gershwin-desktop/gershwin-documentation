@@ -19,16 +19,7 @@ Some examples of how Gershwin uses /System and how we want to use going forward:
     * We do not want to add further features that leverage these technologies
     * If anything we would like to create replacements that intercept them for non native applications and work how we need them to for native applications
 * Other typical desktop technologies we would like to avoid and provide alternative solutions for
-    * Pipewire/Pulseaudio
-        * Using an audio mixer tool as an example where we would prefer to focus on supporting OSS/ALSA and more agnostic technologies first
-            * We do not want FreeBSD/Linux to require Pipewire/Pulseaudio if the user has a working audio setup with OSS/ALSA for a mixer application.
-            * As another example simply that pulseaudio was installed by some other FreeBSD pkg.  This does not mean we should default to pulseaudio.  
-            * We might not "reject" support for making pipewire/pulseaudio work if those things are installed, and the user chooses to use those backends rather than being forced to.  
-                * This support should be explicity enabled by a "Defaults" setting that the end user can choose to enable or disable no matter what decision a 3rd party packager makes.
-        * Like dbus if anything we would like to create replacements that intercept them for non native applications and work how we need them to for native applications
-    * Anything freedesktop related
-        * polkit, pkg-config, xdg-user-dirs, etc
-        * Many of these tools are low hanging fruit opportunities that we would much rather provide our own native better integrated solutions for to ensure Gershwin pulls in only dependencies needed to build and run GNUstep.  
+    * We try to avoid any dependencies on: btrfs, Cairo (other than abstracted through GNUstep), D-Bus, Flatpak, Gio, GLib, Gtk (do not assume is present but be able to run Gtk apps), GSettings, JACK, libadwaita, meson, ModemManager, NetworkManager, Nouveau drivers, OSTree, Pango, PangoCairo, Pipewire, polkit, Portals, "Reverse DNS" style identifiers, security that restricts what the user or applications can do, SELinux, URIs for local files, XDG Desktop spec (although we may want to provide minimal compatibility wrappers for existing applications)
 
 Why do we do this?  The eventual goal is so that Gershwin requires more or less nothing a but a kernel to run and provide the same experience across any hardware device or underlying operating system it runs on.  We do not want the experience to be drastically different whether it is a FreeBSD system, Linux, Windows, etc.  At the moment Gershwin has a self contained install of under 50MB.  We aim to keep it small and building well on low spec machines.  The next goal is also part of reiterating this goal.
 
