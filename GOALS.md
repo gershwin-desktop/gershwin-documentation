@@ -21,11 +21,11 @@ Some examples of how Gershwin uses /System and how we want to use going forward:
     * If anything we would like to create replacements that intercept them for non native applications and work how we need them to for native applications
 * Other typical desktop technologies we would like to avoid and provide alternative solutions for
     * Pipewire/Pulseaudio
-        * Using an audio mixer tool as an example we would prefer to focus on supporting OSS/ALSA and more agnostic technologies
-            * We do not want FreeBSD/Linux to require Pipewire/Pulseaudio if the user has a working audio setup for a mixer application.
-            * As another example simply that pulseaudio was installed by some other FreeBSD pkg and forced on user doesn't mean we want to default to pulseaudio.
+        * Using an audio mixer tool as an example where we would prefer to focus on supporting OSS/ALSA and more agnostic technologies first
+            * We do not want FreeBSD/Linux to require Pipewire/Pulseaudio if the user has a working audio setup with OSS/ALSA for a mixer application.
+            * As another example simply that pulseaudio was installed by some other FreeBSD pkg.  This does not mean we should default to pulseaudio.  
             * We might not "reject" support for making pipewire/pulseaudio work if those things are installed, and the user chooses to use those backends rather than being forced to.  
-                * This support should be explicity enabled by a "Defaults" setting that the end user can choose to enable.
+                * This support should be explicity enabled by a "Defaults" setting that the end user can choose to enable or disable no matter what decision a 3rd party packager makes.
         * Like dbus if anything we would like to create replacements that intercept them for non native applications and work how we need them to for native applications
     * Anything freedesktop related
         * polkit, pkg-config, xdg-user-dirs, etc
