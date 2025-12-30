@@ -44,6 +44,8 @@ What does this mean to the user experience?  We can build the entire system in l
 
 ### Long term stable ABI
 
+The objective is that applications that are compiled today will still run in a few years without recompilation.
+
 * We do not want to fork or modify GNUstep core libs
     * We have tickets open to address where we have made small modifications to core libs that will be ported back to GNUstep
         * Such as examples include being able to restore applications by clicking a GNUstep app from the dock
