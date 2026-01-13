@@ -48,7 +48,7 @@ The domain model answers these questions before you even ask them. Each domain h
 
 Here's how the four domains organize themselves:
 
-### System Domain: The Operating System
+### System Domain: The Desktop Environment
 ```
 /System/
 ├── Applications/          # Core system applications
