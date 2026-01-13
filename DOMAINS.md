@@ -11,9 +11,9 @@ This document explains the Gershwin take on this domain model.
 Think of your computer as having four distinct "worlds" or **domains**, each with its own purpose and authority:
 
 ### 1. **System Domain** (`/System/`)
-- **Who controls it:** The operating system itself
-- **What it contains:** Core system components that make the computer work
-- **When it changes:** Only during OS updates or system maintenance
+- **Who controls it:** The Desktop Environment itself
+- **What it contains:** Core system components that make the desktop environment work
+- **When it changes:** Only during updates
 - **Mental model:** "The foundation that everything else builds upon"
 
 ### 2. **Network Domain** (`/Network/`)
