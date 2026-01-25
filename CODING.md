@@ -14,3 +14,11 @@ Concurrency Model
 * Clear separation:
   ' Background queues → backend work
   * Main queue → UI updates
+
+Best Practices
+* Never call `NSTask` on main thread
+* Never block the main thread
+* Never use retain/release
+* Never reference a specific backend in UI code
+* All framework APIs are async
+* All UI updates occur on main queue
